@@ -1,0 +1,103 @@
+{
+  "he_thong": "Hệ thống quản lý thư viện số gồm cổng thông tin người đọc, dịch vụ quản lý sách và cơ sở dữ liệu.",
+  "thanh_phan": [
+    {
+      "ten": "Cổng thông tin người đọc",
+      "vai_tro": "Gửi yêu cầu tìm kiếm sách, mượn sách và xem lịch sử cá nhân."
+    },
+    {
+      "ten": "Dịch vụ quản lý sách",
+      "vai_tro": "Xử lý mượn/trả sách, kiểm tra tài khoản và phân quyền."
+    },
+    {
+      "ten": "Cơ sở dữ liệu",
+      "vai_tro": "Lưu trữ thông tin người dùng, danh mục sách và phiếu mượn."
+    }
+  ],
+  "moi_de_doa": [
+    {
+      "ma": "M01",
+      "phat_bieu": "Nếu dịch vụ quản lý sách ghép trực tiếp dữ liệu tìm kiếm vào câu lệnh SQL, kẻ tấn công có thể thay đổi truy vấn để đọc dữ liệu thành viên khác.",
+      "nguyen_ly": 2,
+      "attack": "T1190",
+      "tac_dong": 5,
+      "kha_nang": 3
+    },
+    {
+      "ma": "M02",
+      "phat_bieu": "Nếu phiên đăng nhập tài khoản thư viện không được bảo vệ cookie an toàn, người chiếm được cookie có thể mạo danh mượn sách.",
+      "nguyen_ly": 5,
+      "attack": "T1539",
+      "tac_dong": 5,
+      "kha_nang": 3
+    },
+    {
+      "ma": "M03",
+      "phat_bieu": "Nếu API xem phiếu mượn chỉ kiểm tra đăng nhập mà thiếu kiểm tra mã chủ sở hữu, người đọc có thể xem phiếu mượn của tài khoản khác.",
+      "nguyen_ly": 5,
+      "attack": "T1213.006",
+      "tac_dong": 5,
+      "kha_nang": 4
+    },
+    {
+      "ma": "M04",
+      "phat_bieu": "Nếu tệp sao lưu dữ liệu sách đặt nhầm trong thư mục web công khai, bất kỳ ai cũng có thể tải xuống danh sách tài khoản và lịch sử mượn.",
+      "nguyen_ly": 3,
+      "attack": "T1213.006",
+      "tac_dong": 5,
+      "kha_nang": 3
+    },
+    {
+      "ma": "M05",
+      "phat_bieu": "Nếu trang quản trị thư viện không giới hạn số lần đăng nhập sai, kẻ gian có thể dò mật khẩu tài khoản quản trị.",
+      "nguyen_ly": 3,
+      "attack": "T1110.001",
+      "tac_dong": 5,
+      "kha_nang": 3
+    },
+    {
+      "ma": "M06",
+      "phat_bieu": "Nếu máy chủ ứng dụng ghi thông tin nhạy cảm vào tệp nhật ký (log), người đọc log có thể lấy thông tin xác thực.",
+      "nguyen_ly": 1,
+      "attack": "T1552.001",
+      "tac_dong": 5,
+      "kha_nang": 2
+    },
+    {
+      "ma": "M07",
+      "phat_bieu": "Nếu tài khoản kết nối cơ sở dữ liệu có toàn quyền quản trị, việc chiếm được dịch vụ sẽ làm lộ toàn bộ dữ liệu thư viện.",
+      "nguyen_ly": 1,
+      "attack": "T1078",
+      "tac_dong": 5,
+      "kha_nang": 3
+    },
+    {
+      "ma": "M08",
+      "phat_bieu": "Nếu kết nối mạng không được mã hóa, dữ liệu trao đổi giữa ứng dụng và cơ sở dữ liệu có thể bị bắt gói tin.",
+      "nguyen_ly": 2,
+      "attack": "T1040",
+      "tac_dong": 4,
+      "kha_nang": 2
+    }
+  ],
+  "chon_xu_ly": [
+    {
+      "ma": "M03",
+      "chi_phi": 4,
+      "don_vi": "giờ công",
+      "can_cu": "Rà soát API, bổ sung kiểm tra chủ sở hữu phiếu mượn và viết kiểm thử."
+    },
+    {
+      "ma": "M01",
+      "chi_phi": 8,
+      "don_vi": "giờ công",
+      "can_cu": "Chuyển đổi sang truy vấn tham số hóa và kiểm thử bảo mật."
+    },
+    {
+      "ma": "M02",
+      "chi_phi": 6,
+      "don_vi": "giờ công",
+      "can_cu": "Cấu hình lại vòng đời phiên và củng cố bảo mật cookie."
+    }
+  ]
+}
